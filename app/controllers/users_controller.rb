@@ -9,8 +9,11 @@ class UsersController < ApplicationController
   end
 
   def create
+    
     @user = User.create(user_params)
-    redirect_to user_path(@user)
+    session[:user_id] = @user.id
+
+    redirect_to user_path(@user.id)
   end
 
   private
