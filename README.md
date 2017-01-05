@@ -33,3 +33,31 @@ You're going to be building an amusement park. There will be users, attractions,
 
 
 <a href='https://learn.co/lessons/rails-amusement-park' data-visibility='hidden'>View this lesson on Learn.co</a>
+
+
+<%= form_for(@user) do |f| %>
+  <%= f.text_field :name %>
+  <%= f.password_field :password %>
+  <%= f.password_field :password_confirmation %>
+  <%= f.text_field :mood %>
+  <%= f.text_field :nausea %>
+  <%= f.text_field :happiness %>
+  <%= f.text_field :tickets %>
+  <%= f.text_field :height %>
+  <%= f.check_box :admin %>
+
+  <%= f.submit "Sign up" %>
+
+<% end %>
+
+<%= form_tag({controller: 'users', action: 'create', method: 'post'}) do %>
+  <%= text_field_tag :name %>
+  <%= password_field_tag :password %>
+  <%= password_field_tag :password_confirmation %>
+  <%= text_field_tag :mood %>
+  <%= text_field_tag :happiness %>
+  <%= text_field_tag :tickets %>
+  <%= text_field_tag :height %>
+  <%= check_box_tag :admin %>
+  <%= submit_tag "Sign up" %>
+<% end %>
