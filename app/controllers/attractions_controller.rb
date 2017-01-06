@@ -11,8 +11,30 @@ class AttractionsController < ApplicationController
     @user = User.find(current_user)
     @attraction = Attraction.find(params[:id])
     @ride = Ride.create(user_id: @user.id, attraction_id: @attraction.id)
-    @ride.take_ride
+    flash[:notice] = @ride.take_ride
     redirect_to user_path(session[:user_id])
+  end
+
+  def create
+    @attraction = Attraction.create(attraction_params)
+    redirect_to attraction_path(@attraction)
+  end
+
+  def edit
+    @attraction = Attraction.find(params[:id])
+  end
+
+  
+  def update
+    @attraction = Attraction.update(session[:user_id], attraction_params)
+    redirect_to attraction_path(@attraction)
+
+  end
+
+  private
+
+  def attraction_params
+    params.require(:attraction).permit(:name, :tickets, :nausea_rating, :happiness_rating, :min_height)
   end
 
 end

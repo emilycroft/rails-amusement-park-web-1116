@@ -1,12 +1,12 @@
 class UsersController < ApplicationController
 
   def show
+    @user = User.find(params[:id])
     if session[:user_id]
-      @user = User.find(params[:id])
+      @user
     else
       redirect_to root_path
     end
-    # flash[:notice]"Thanks for riding the #{@user.ride.attraction.name}!"
   end
 
   def new

@@ -1,0 +1,22 @@
+
+
+<%= form_tag({controller: "attractions", action: "create", method:"post"}) do%>
+
+<%= label_tag "attraction[name]" %>
+<%= text_field_tag "attraction[name]" %>
+
+<%= label_tag :tickets %>
+<%= text_field_tag "attraction[tickets]" %>
+
+<%= label_tag :nausea_rating %>
+<%= text_field_tag "attraction[nausea_rating]" %>
+
+<%= label_tag :happiness_rating %>
+<%= text_field_tag "attraction[happiness_rating]" %>
+
+<%= label_tag :min_height %>
+<%= text_field_tag "attraction[min_height]" %>
+
+<%= submit_tag "Create Attraction" %>
+
+<% end %>

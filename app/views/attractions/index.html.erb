@@ -1,7 +1,12 @@
 <% @attractions.each do |attraction| %>
+  <% unless User.find(current_user).admin %>
   <%= link_to "Go on #{attraction.name}", "/attractions/#{attraction.id}" %>
+  <% end %>
+  <%= link_to "Show #{attraction.name}", "/attractions/#{attraction.id}" %>
   <%= attraction.tickets %>
   <%= attraction.nausea_rating %>
   <%= attraction.happiness_rating %>
   <%= attraction.min_height %>
 <% end %>
+
+<%= link_to "New Attraction", "/attractions/new" %>
