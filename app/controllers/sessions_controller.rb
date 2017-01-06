@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
   def show
 
+<<<<<<< HEAD
   end
 
   def create
@@ -17,4 +18,18 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     redirect_to '/'
   end
+=======
+  def new
+    
+  end
+
+  def create
+    
+  end
+
+  def destroy
+
+  end
+
+>>>>>>> c98a09da926c4e6749935cd9db2f2616149efd9f
 end
